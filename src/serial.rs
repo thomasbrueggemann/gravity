@@ -82,7 +82,7 @@ mod tests {
 	use super::*;
 
 	#[cfg(test)]
-	mod find_subsequence_tests {
+	mod find_subsequence {
 		use super::*;
 
 		#[test]
@@ -93,6 +93,26 @@ mod tests {
 			let idx = find_subsequence(&seq, &sub_seq);
 
 			assert_eq!(0, idx.unwrap());
+		}
+
+		#[test]
+		fn should_detect_a_subsequence_of_two_bytes_at_the_end() {
+			let seq = vec![1, 2, 3, 4, 5];
+			let sub_seq = vec![4, 5];
+
+			let idx = find_subsequence(&seq, &sub_seq);
+
+			assert_eq!(3, idx.unwrap());
+		}
+
+		#[test]
+		fn should_not_detect_a_subsequence_when_main_sequence_is_empty() {
+			let seq = vec![];
+			let sub_seq = vec![4, 5];
+
+			let idx = find_subsequence(&seq, &sub_seq);
+
+			assert_eq!(true, idx.is_none());
 		}
 	}
 }
