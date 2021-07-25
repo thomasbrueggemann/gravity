@@ -2,7 +2,7 @@
 
 Realtime Guitar DSP Effects with Rust
 
-## Serial communication protocol Arudino -> Raspberry
+## Serial communication protocol Arduino -> Raspberry
 
 | Byte | Description  |
 |------|--------------|
