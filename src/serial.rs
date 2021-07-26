@@ -3,7 +3,8 @@ use byteorder::{ByteOrder, LittleEndian};
 use std::io;
 
 pub struct Potis {
-    pot1: i16
+    pot1: i16,
+	pot2: i16
 }
 
 pub fn handle_serial_port() {
@@ -52,7 +53,8 @@ fn detect_next_message(data: &mut Vec<u8>) {
 		
 		let parsed_seq = handle_serial_message_parsing(seq);
 		if parsed_seq.is_some() {
-			println!("{}", parsed_seq.unwrap().pot1)
+			let s = parsed_seq.unwrap();
+			println!("{}, {}", s.pot1, s.pot2)
 		}
 	}
 }
@@ -60,9 +62,11 @@ fn detect_next_message(data: &mut Vec<u8>) {
 fn handle_serial_message_parsing(data: Vec<u8>) -> Option<Potis> {
     if data.len() >= 6 {
         let pot1 = LittleEndian::read_i16(&data[4..6]);
+		let pot2 = LittleEndian::read_i16(&data[6..8]);
 
         let potis = Potis {
-            pot1
+            pot1,
+			pot2
         };
 
         return Some(potis);

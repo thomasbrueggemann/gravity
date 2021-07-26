@@ -1,10 +1,15 @@
 #include <ResponsiveAnalogRead.h>
 
-ResponsiveAnalogRead analogOne(A1, true);
-ResponsiveAnalogRead analogTwo(A2, true);
+ResponsiveAnalogRead analogOne(A0, true);
+ResponsiveAnalogRead analogTwo(A1, true);
+
+float activityThreshold = 6.0;
 
 void setup() {
     Serial.begin(9600);
+
+    analogOne.setActivityThreshold(activityThreshold);
+    analogTwo.setActivityThreshold(activityThreshold);
 }
 
 void loop() {

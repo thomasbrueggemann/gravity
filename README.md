@@ -12,11 +12,5 @@ Realtime Guitar DSP Effects with Rust
 | 3    | 89 (= Y)     |
 | 4    | Pot 1 Byte 1 |
 | 5    | Pot 1 Byte 2 |
-| 6    |             |
-| 7    |             |
-| 8    |             |
-| 9    |             |
-| 10   |             |
-| 11   |             |
-| 12   |             |
-| 13   |             |
+| 6    | Pot 2 Byte 1 |
+| 7    | Pot 2 Byte 2 |
